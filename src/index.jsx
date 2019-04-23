@@ -1,11 +1,11 @@
-import { html, render } from 'htm/preact'
-import App from './App.js'
+import { render } from 'preact'
+import App from './App.jsx'
 
-const markup = html`
+const markup = (
   <div>
     <p>Rendered client side</p>
-    <${App} html=${html}/>
+    <App />
   </div>
-`
+)
 
 render(markup, document.getElementById('app'), document.getElementById('ssr'))

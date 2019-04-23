@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "npm run standard --fix",
-    "dev": "DEBUG=dvlp* dvlp server/server.js"
+    "dev": "DEBUG=dvlp* dvlp --transpiler scripts/transpile.js server/server.js"
   },
   "repository": {
     "type": "git",
@@ -20,13 +20,11 @@
   "dependencies": {
     "convict": "^4.4.1",
     "hapi": "^18.1.0",
-    "inert": "^5.1.2",
-    "vhtml": "^2.1.0"
+    "inert": "^5.1.2"
   },
   "devDependencies": {
-    "dvlp": "^4.3.1",
-    "htm": "^2.1.1",
     "preact": "^10.0.0-alpha.4",
-    "standard": "^12.0.1"
+    "standard": "^12.0.1",
+    "sucrase": "^3.10.1"
   }
 }
