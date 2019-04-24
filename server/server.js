@@ -1,5 +1,6 @@
 import App from '../src/App'
 import render from 'preact-render-to-string'
+import { h } from 'preact'
 const Hapi = require('hapi')
 const Inert = require('inert')
 
