@@ -1,4 +1,5 @@
 import App from '../src/App'
+import render from 'preact-render-to-string'
 const Hapi = require('hapi')
 const Inert = require('inert')
 
@@ -24,8 +25,9 @@ const init = async () => {
   server.route({
     method: 'get',
     path: '/',
-    handler: (request, h) => {
-      return App()
+    handler: (request, reply) => {
+      const html = render(App)
+      return html
     }
   })
 

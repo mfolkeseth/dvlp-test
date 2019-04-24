@@ -3,11 +3,12 @@ const sucrase = require('sucrase')
 
 const RE_JS = /\.jsx?$/
 
-module.exports = async function transpile (filePath, isServer) {
+module.exports = function transpile (filePath, isServer) {
   const jsTransforms = isServer ? ['imports', 'jsx'] : ['jsx']
   if (RE_JS.test(filePath)) {
     return sucrase.transform(fs.readFileSync(filePath, 'utf8'), {
-      transforms: jsTransforms
+      transforms: jsTransforms,
+      jsxPragma: 'h'
     }).code
   }
 }
