@@ -1,10 +1,9 @@
-import { render } from 'preact'
-import App from './App.jsx'
+import { render, h } from 'preact' //eslint-disable-line
+// import App from './App.js'
 
 const markup = (
   <div>
     <p>Rendered client side</p>
-    <App />
   </div>
 )
 

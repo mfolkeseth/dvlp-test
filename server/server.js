@@ -1,6 +1,5 @@
-import App from '../src/App'
+import App from '../src/App.jsx'
 import render from 'preact-render-to-string'
-import { h } from 'preact'
 const Hapi = require('hapi')
 const Inert = require('inert')
 
@@ -27,8 +26,21 @@ const init = async () => {
     method: 'get',
     path: '/',
     handler: (request, reply) => {
-      const html = render(App)
-      return html
+      return `
+        <html>
+        <head>
+          <title>Testing dvlp</title>
+        </head>
+        <body>
+          <div id="app">
+            <div id="ssr">
+              ${render(App())}
+            </div>
+          </div>
+          <script type="module" src="/src/index.js"></script>
+        </body>
+        </html>
+      `
     }
   })
 

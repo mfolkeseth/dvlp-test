@@ -1,7 +1,11 @@
-import { h } from 'preact' // eslint-disable-line
+import { h } from 'preact'
+// import SomeComponent from './SomeComponent.js'
 
 export default () => {
   return (
-    <p>Hello and welcome to the app root</p>
+    <div>
+      <p>Hello and welcome to the app root</p>
+      {/* <SomeComponent /> */}
+    </div>
   )
 }
