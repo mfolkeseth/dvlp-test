@@ -1,7 +1,7 @@
-import App from '../src/App.jsx'
-import render from 'preact-render-to-string'
 const Hapi = require('hapi')
 const Inert = require('inert')
+const Vision = require('vision')
+const Handlebars = require('handlebars')
 
 const server = Hapi.server({
   port: 3000
@@ -9,6 +9,14 @@ const server = Hapi.server({
 
 const init = async () => {
   await server.register(Inert)
+  await server.register(Vision)
+  server.views({
+    engines: {
+      hbs: Handlebars
+    },
+    relativeTo: __dirname,
+    path: './templates'
+  })
 
   server.route({
     method: 'get',
@@ -26,21 +34,7 @@ const init = async () => {
     method: 'get',
     path: '/',
     handler: (request, reply) => {
-      return `
-        <html>
-        <head>
-          <title>Testing dvlp</title>
-        </head>
-        <body>
-          <div id="app">
-            <div id="ssr">
-              ${render(App())}
-            </div>
-          </div>
-          <script type="module" src="/src/index.js"></script>
-        </body>
-        </html>
-      `
+      return reply.view('index')
     }
   })
 
