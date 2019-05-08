@@ -1,3 +1,4 @@
+import App from './templates/js/index.js'
 const Hapi = require('hapi')
 const Inert = require('inert')
 const Vision = require('vision')
@@ -34,7 +35,9 @@ const init = async () => {
     method: 'get',
     path: '/',
     handler: (request, reply) => {
-      return reply.view('index')
+      return reply.view('index', {
+        js: App
+      })
     }
   })
 

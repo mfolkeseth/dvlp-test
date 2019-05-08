@@ -3,35 +3,12 @@
     <title>Test dvlp</title>
   </head>
   <body>
-    <p>Handlebars rendering</p>
-    <script>
-      var someStringifiedJson = `{
-      "type":
-        "FeatureCollection",
-        "features":[
-          {
-            "type":"Feature",
-            "properties":{
-              "name":"Østvang skole",
-              "description":null,
-              "iconUrl":"https://gfx.nrk.no/SZVntJwbn8vrk2bU7b5IRgjTJMY4yHWSl-M5WaKhushw",
-              "webImageUrl":"https://gfx.nrk.no/SZVntJwbn8vrk2bU7b5IRgGXx5ArGiOK6gzqoukwwEPg",
-              "videoId":"04395010-47b1-4cf7-bc96-03dd8d6d262a",
-              "psApiUrl":"https://psapi.nrk.no/mediaelement/04395010-47b1-4cf7-bc96-03dd8d6d262a",
-              "mdbSpatialName":"<undefined>",
-              "analyticsId":"potion:04395010-47b1-4cf7-bc96-03dd8d6d262a",
-              "analyticsTitle":"oestvang-skole",
-              "psapiMediaElementId":"04395010-47b1-4cf7-bc96-03dd8d6d262a",
-              "psapiMediaElementWebImage":"https://gfx.nrk.no/SZVntJwbn8vrk2bU7b5IRgGXx5ArGiOK6gzqoukwwEPg",
-              "psapiMediaElementUrl":"https://psapi.nrk.no/mediaelement/04395010-47b1-4cf7-bc96-03dd8d6d262a"},
-              "geometry":{
-                "type":"Point",
-                "coordinates":[10.71678,59.93426]
-              }
-            }
-          ]
-        }
-      `
-    </script>
+    <div id="app">
+      <div id="ssr">
+        <p>Handlebars rendering</p>
+        {{{js}}}
+      </div>
+    </div>
+    <script type="module" src="/src/index.js"></script>
   </body>
 </html>
